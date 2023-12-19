@@ -50,7 +50,7 @@
     <footer>
         <a th:href="@{~/index}">
             <img id="exit" width="29%" src="../static/images/continue.png" th:src="@{/images/continue.png}">
-            <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}">
+            <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}" onclick="goBack()">
         </a>
     </footer>
 </div>
@@ -69,6 +69,10 @@
             alert(data.meg);
         }
     });
+
+    function goBack() {
+  window.history.back();
+}
 </script>
 </body>
 </html>

@@ -73,7 +73,7 @@
     </div>
     <footer>
         <img id="continue" width="29%" src="../static/images/continue.png" th:src="@{/images/continue.png}">
-        <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}">
+        <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}" onclick="goBack()">
     </footer>
 </div>
 <form id="myform" th:action="@{~/transferDetails}" method="post">
@@ -129,6 +129,10 @@ $("#continue").click(function () {
     }
   });
 });
+
+function goBack() {
+  window.history.back();
+}
 </script>
 </body>
 </html>

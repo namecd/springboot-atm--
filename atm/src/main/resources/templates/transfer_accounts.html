@@ -84,38 +84,58 @@
 <script th:src="@{/lib/layui/layui.js}" src="../static/lib/layui/layui.js"></script>
 <script th:src="@{/lib/bootstrap/js/bootstrap.js}" src="../static/lib/bootstrap/js/bootstrap.js"></script>
 <script th:inline="javascript">
+$("#card2").hide();
+
+function validateCards() {
+  const card1Val = $("#card1").val();
+  const card2Val = $("#card2").val();
+
+  if (card1Val === "" || card2Val === "") {
+    alert("请输入有效卡号");
+    return false; // prevent further processing
+  }
+
+  if (card1Val !== card2Val) {
+    layui.use('layer', function () {
+      var layer = layui.layer;
+      layer.msg("两次输入账号不一致，请重新输入");
+    });
+    return false; // prevent further processing
+  }
+
+  return true; // cards are valid and match
+}
+
+$("#continue").click(function () {
+  if (!validateCards()) {
+    return; // stop if cards are invalid
+  }
+
+  const cardId = card2Val; // use the latest value
+
+  $.post("/queryCardInfo", {"cardId": cardId}, function (data) {
+    if (data.res === "success") {
+      $('input[name=cardId]').val(data.meg);
+      $('input[name=username]').val(data.object.customerName);
+      $("#myform").submit();
+    } else if (data.res === "error") {
+      layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.msg(data.meg); // show server error message
+      });
+    } else {
+      // handle any other unexpected response
+      console.error("Unexpected response from server", data);
+    }
+  });
+});
+
     $(function () {
-        $("#card2").hide();
-        $("#continue").click(function () {
-            var cardId1 = $("#card1").val();
-            $("#card1").hide();
-            $("#card2").show();
-            var cardId2 = $("#card2").val();
-            if (cardId2 != "" && cardId1 != "") {
-                if (cardId1 === cardId2) {
-                    $.post("/queryCardInfo", {"cardId": cardId2}, function (data) {
-                        if (data.res === "success") {
-                            $('input[name=cardId]').val(data.meg);
-                            $('input[name=username]').val(data.object.customerName);
-                            $("#myform").submit();
-                        } else if (data.res === "error") {
-                            layui.use('layer', function () {
-                                var layer = layui.layer;
-                                layer.msg(data.meg);
-                            });
-                        }
-                    });
-                } else {
-                    layui.use('layer', function () {
-                        var layer = layui.layer;
-                        layer.msg("两次输入账号不一致，请重新输入");
-                    });
-                }
-            }
-
-        });
-
-    })
+      $("#m2").click(function () {
+        // Redirect to welcome.html
+        window.location.href = "index.html";
+      });
+    });
 </script>
 </body>
 </html>

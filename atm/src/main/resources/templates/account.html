@@ -71,7 +71,7 @@
     </div>
     <footer>
         <img id="continue" width="29%" src="../static/images/continue.png" th:src="@{/images/continue.png}">
-        <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}">
+        <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}" onclick="goBack()"/>
     </footer>
 </div>
 <form id="myform" th:action="@{~/load}"></form>
@@ -94,13 +94,9 @@
             });
         });
     })
-
-    $(function () {
-      $("#m2").click(function () {
-        // Redirect to welcome.html
-        window.location.href = "welcome.html";
-      });
-    });
+    function goBack() {
+  window.history.back();
+}
 </script>
 </body>
 </html>

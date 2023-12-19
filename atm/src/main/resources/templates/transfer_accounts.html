@@ -90,7 +90,7 @@ function validateCards() {
   const card1Val = $("#card1").val();
   const card2Val = $("#card2").val();
 
-  if (card1Val === "" || card2Val === "") {
+  if (card1Val === "") {
     alert("请输入有效卡号");
     return false; // prevent further processing
   }
@@ -129,13 +129,6 @@ $("#continue").click(function () {
     }
   });
 });
-
-    $(function () {
-      $("#m2").click(function () {
-        // Redirect to welcome.html
-        window.location.href = "index.html";
-      });
-    });
 </script>
 </body>
 </html>

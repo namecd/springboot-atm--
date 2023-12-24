@@ -15,7 +15,8 @@ public enum ExceptionEnum {
     WITHDRAWAL_ERROE(500, "取款失败，服务器内部错误"),
     TRANSFER_ACCOUNT_FOUND(500, "查询转账账户异常"),
     TRANSFER_ACCOUNT_ERROE(500, "转账异常，服务器错误"),
-    SAVE_MONEY_ERROR(500, "存款失败，服务器内部错误");
+    SAVE_MONEY_ERROR(500, "存款失败，服务器内部错误"),
+    PRINT_TRANSACATION_ERROR(500,"获取交易记录失败");
     private Integer code;
     private String msg;
 }

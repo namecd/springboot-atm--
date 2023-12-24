@@ -16,4 +16,6 @@ public interface MoneyService {
     AjaxRes getUserCard(String cardId,HttpSession session);
     //转账
     AjaxRes transMoneyByCard(String userCard, String transCard, BigDecimal money,HttpSession session);
+
+    AjaxRes printTransacationLog(String cardId,HttpSession session);
 }

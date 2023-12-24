@@ -67,4 +67,10 @@ public class MoneyController {
         AjaxRes ajaxRes = moneyService.saveMoneyById(cardId, money,session);
         return ResponseEntity.ok(ajaxRes);
     }
+    @ApiOperation(value = "查询交易日志", notes = "对数据库进行访问", httpMethod = "POST")
+    @PostMapping("/getTransactionLog")
+    public ResponseEntity<AjaxRes> printTransacationLog(String cardId,HttpSession session){
+        AjaxRes ajaxRes = moneyService.printTransacationLog(cardId,session);
+        return ResponseEntity.ok(ajaxRes);
+    }
 }

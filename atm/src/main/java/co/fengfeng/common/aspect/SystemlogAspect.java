@@ -29,7 +29,7 @@ public class SystemlogAspect {
         //获取方法的名称
         String signature = joinPoint.getSignature().getName();
         String func = name + ":" + signature;
-        systemlog.setFunction(func);
+        systemlog.setFunc(func);
         //获取方法参数
         Object[] args = joinPoint.getArgs();
         Gson gson = new Gson();
@@ -44,6 +44,6 @@ public class SystemlogAspect {
         }
         systemlog.setParams(stringBuffer.toString());
         //将日志保存到数据库
-//        systemlogMapper.insert(systemlog);
+        systemlogMapper.insert(systemlog);
     }
 }

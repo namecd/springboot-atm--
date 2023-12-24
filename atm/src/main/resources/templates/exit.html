@@ -35,12 +35,18 @@
         <span style="font-size: 50px">请 取 走 您 的 磁 卡 ！</span>
         <h3>欢迎下次光临</h3>
     </div>
+    <form id="my_form" th:method="get"></form>
 </div>
 
 <script src="../static/lib/jquery/jquery.min.js"></script>
 <script src="../static/lib/layui/layui.js"></script>
 <script src="../static/lib/bootstrap/js/bootstrap.js"></script>
 <script>
+    // Wait for 10 seconds (10000 milliseconds)
+    setTimeout(function() {
+        // Get the form element by its ID
+        window.location.href = "http://8.219.7.62:8752/welcome";
+    }, 10000);
 </script>
 </body>
 </html>

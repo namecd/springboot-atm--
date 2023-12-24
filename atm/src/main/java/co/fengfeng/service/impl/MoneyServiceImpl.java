@@ -2,11 +2,9 @@ package co.fengfeng.service.impl;
 
 import co.fengfeng.common.enums.ExceptionEnum;
 import co.fengfeng.common.exception.AtmException;
-import co.fengfeng.domain.AjaxRes;
-import co.fengfeng.domain.CardInfo;
-import co.fengfeng.domain.TransInfo;
-import co.fengfeng.domain.UserInfo;
+import co.fengfeng.domain.*;
 import co.fengfeng.mapper.CardInfoMapper;
+import co.fengfeng.mapper.SystemlogMapper;
 import co.fengfeng.mapper.TransInfoMapper;
 import co.fengfeng.mapper.UserInfoMapper;
 import co.fengfeng.service.MoneyService;
@@ -15,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -30,6 +30,7 @@ public class MoneyServiceImpl implements MoneyService {
     private TransInfoMapper transInfoMapper;
     @Autowired
     private UserInfoMapper userInfoMapper;
+
 
     /**
      * 根据银行卡号查询账号余额
@@ -222,6 +223,48 @@ public class MoneyServiceImpl implements MoneyService {
         }catch (Exception e){
             log.error("转账异常"+e.getMessage());
             throw new AtmException(ExceptionEnum.TRANSFER_ACCOUNT_ERROE);
+        }
+        return ajaxRes;
+    }
+    @Override
+    public AjaxRes printTransacationLog(String cardId,HttpSession session){
+        AjaxRes ajaxRes = new AjaxRes();
+        CardInfo card = new CardInfo();
+        card.setCardId(cardId);
+        try{
+            List<TransInfo> transInfos = transInfoMapper.selectAll();
+            if(transInfos.size()>0){
+                ajaxRes.setRes("success");
+                ajaxRes.setMeg("读取成功");
+                for (int i = transInfos.size() - 1; i >= 0; i--) {
+                    TransInfo transInfo = transInfos.get(i);
+
+                    String cardIdInTransInfo = transInfo.getCardId();
+                    String remarkInTransInfo = transInfo.getRemark();
+                    Integer transType = transInfo.getTransType();
+
+                    if (transType == 2 &&
+                            (cardIdInTransInfo == null || !cardIdInTransInfo.contains(cardId)) &&
+                            (remarkInTransInfo == null || !remarkInTransInfo.contains(cardId))) {
+                        transInfos.remove(i);
+                    }
+
+                    if(transType == 1 || transType == 0) {
+                        if (!cardIdInTransInfo.contains(cardId)) {
+                            transInfos.remove(i);
+                        }
+                    }
+                }
+                session.setAttribute("SysLogInfo",transInfos);
+                ajaxRes.setObject(transInfos);
+            }
+            else{
+                ajaxRes.setRes("error");
+                ajaxRes.setMeg("读取失败");
+            }
+        }catch(Exception e){
+            log.error("打印交易记录失败"+e.getMessage());
+            throw new AtmException(ExceptionEnum.PRINT_TRANSACATION_ERROR);
         }
         return ajaxRes;
     }

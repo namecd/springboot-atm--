@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询记录</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/lib/layui/css/layui.css" th:href="@{/lib/layui/css/layui.css}">
+    <link href="../static/lib/bootstrap/css/bootstrap.css" th:href="@{/lib/bootstrap/css/bootstrap.css}"
+          rel="stylesheet">
+    <style>
+        #main {
+            background-size: cover;
+            margin-top: 5px;
+            background:url(../static/images/timg.jpg);
+            background-size: cover;
+            border-radius: 10px;
+            /*  border-radius: 15px;*/
+            height: 750px;
+            border: 1px solid grey;
+            box-shadow: 5px 5px 5px gainsboro;
+            overflow: hidden;
+        }
+        #main>div{
+            text-align: center;
+            color: white;
+            margin-top: 180px;
+        }
+        .layui-table tbody tr:hover {
+            background:none;
+        }
+        .layui-table {
+            width: 100%;
+            color: black;
+        }
+        footer {
+            width: 95%;
+            margin: 200px auto;
+            left: 20px;
+        }
+        #m2 {
+            float: right;
+            cursor: pointer;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script src="../static/lib/jquery/jquery.min.js" th:src="@{/lib/jquery/jquery.min.js}"></script>
+    <script th:src="@{/lib/layui/layui.js}"></script>
+    <script th:src="@{/lib/bootstrap/js/bootstrap.js}"></script>
+    <script th:inline="javascript">
+        var cardId = /*[[${#session.getAttribute('cardId')}]]*/'';
+
+    </script>
+</head>
+<body>
+<div id="main" class="layui-main">
+    <div th:if="${#session.getAttribute('loginUser') != null}">
+        <h1>交 易 记 录</h1>
+        <div style="height: 200px;  overflow: auto;">
+            <table class="layui-table " style="width: 65%; margin: 30px auto; box-shadow:5px 3px 3px darkgrey;">
+                <thead>
+                <tr>
+                    <th>卡号</th>
+                    <th>操作类型</th>
+                    <th>数额</th>
+                    <th>时间</th>
+                    <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- 这里插入每一行的数据 -->
+                <!-- 使用 Thymeleaf 循环生成表格行 -->
+                    <tr th:each="log : ${#session.getAttribute('SysLogInfo')}">
+                        <td th:text="${log.cardId}"></td>
+                        <td th:if="${log.transType == 0}" >存款</td>
+                        <td th:if="${log.transType == 1}" >取款</td>
+                        <td th:if="${log.transType == 2}" >转账</td>
+                        <td th:text="${log.transMoney}"></td>
+                        <td th:text="${log.transDate}"></td>
+                        <td th:if="${log.transType == 0}" th:text= "${log.remark}"></td>
+                        <td th:if="${log.transType == 1}" th:text= "${log.remark}"></td>
+                        <td th:if="${log.transType == 2}" th:text= "'对方账号 ' + ${log.remark}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <a th:href="@{~/index}">
+            <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}" onclick="goBack()">
+        </a>
+    </footer>
+</div>>
+</body>
+</html>
+
+

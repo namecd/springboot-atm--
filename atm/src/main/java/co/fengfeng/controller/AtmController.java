@@ -107,4 +107,9 @@ public class AtmController {
     public String otherMoney() {
         return "other_money";
     }
+
+    @GetMapping("/check_records")
+    public String showCheckRecordsPage() {
+        return "check_records";
+    }
 }

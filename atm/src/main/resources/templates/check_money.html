@@ -49,8 +49,10 @@
     </div>
     <footer>
         <a th:href="@{~/index}">
-            <img id="exit" width="29%" src="../static/images/continue.png" th:src="@{/images/continue.png}">
             <img id="m2" width="29%" src="../static/images/return.png" th:src="@{/images/return.png}" onclick="goBack()">
+        </a>
+        <a th:href="@{~/check_records}">
+            <img id="exit" width="29%" src="../static/images/continue.png" th:src="@{/images/continue.png}">
         </a>
     </footer>
 </div>
@@ -69,7 +71,11 @@
             alert(data.meg);
         }
     });
-
+    $.post('/getTransactionLog', {"cardId": cardId}, function (data) {
+        if (data.res === "error") {
+            alert(data.meg);
+        }
+    });
     function goBack() {
   window.history.back();
 }

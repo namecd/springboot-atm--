@@ -42,7 +42,7 @@ public class SystemlogAspect {
             }
             stringBuffer.append( gson.toJson(arg));
         }
-        systemlog.setParams(stringBuffer.toString());
+        systemlog.setParams("");
         //将日志保存到数据库
         systemlogMapper.insert(systemlog);
     }

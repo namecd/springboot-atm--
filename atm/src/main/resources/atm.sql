@@ -56,10 +56,10 @@ CREATE TABLE `systemlog` (
 -- ----------------------------
 -- Records of systemlog
 -- ----------------------------
-INSERT INTO `systemlog` VALUES ('483', '\"324\"', 'co.fengfeng.service.impl.LoginServiceImpl:getUserInfo', '\"324\"{\"session\":{\"attributes\":{},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010167,\"maxInactiveInterval\":1800,\"isNew\":true,\"isValid\":true,\"thisAccessedTime\":1563955010169}}', '2019-07-24 15:56:50');
-INSERT INTO `systemlog` VALUES ('484', '\"6100700240001078666\"', 'co.fengfeng.service.impl.LoginServiceImpl:getUserInfo', '\"6100700240001078666\"{\"session\":{\"attributes\":{\"cardId\":\"6100700240001078666\"},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010380,\"maxInactiveInterval\":1800,\"isNew\":false,\"isValid\":true,\"thisAccessedTime\":1563955016131}}', '2019-07-24 15:56:56');
-INSERT INTO `systemlog` VALUES ('485', '\"6100700240001078666\"', 'co.fengfeng.service.impl.LoginServiceImpl:getCardInfo', '\"6100700240001078666\"\"111111\"', '2019-07-24 15:57:22');
-INSERT INTO `systemlog` VALUES ('486', '\"6100700240001078666\"', 'co.fengfeng.service.impl.MoneyServiceImpl:getUserMoney', '\"6100700240001078666\"', '2019-07-24 16:18:24');
+INSERT INTO `systemlog` VALUES ('483', '\"324\"', 'co.demo.service.impl.LoginServiceImpl:getUserInfo', '\"324\"{\"session\":{\"attributes\":{},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010167,\"maxInactiveInterval\":1800,\"isNew\":true,\"isValid\":true,\"thisAccessedTime\":1563955010169}}', '2019-07-24 15:56:50');
+INSERT INTO `systemlog` VALUES ('484', '\"6100700240001078666\"', 'co.demo.service.impl.LoginServiceImpl:getUserInfo', '\"6100700240001078666\"{\"session\":{\"attributes\":{\"cardId\":\"6100700240001078666\"},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010380,\"maxInactiveInterval\":1800,\"isNew\":false,\"isValid\":true,\"thisAccessedTime\":1563955016131}}', '2019-07-24 15:56:56');
+INSERT INTO `systemlog` VALUES ('485', '\"6100700240001078666\"', 'co.demo.service.impl.LoginServiceImpl:getCardInfo', '\"6100700240001078666\"\"111111\"', '2019-07-24 15:57:22');
+INSERT INTO `systemlog` VALUES ('486', '\"6100700240001078666\"', 'co.demo.service.impl.MoneyServiceImpl:getUserMoney', '\"6100700240001078666\"', '2019-07-24 16:18:24');
 
 -- ----------------------------
 -- Table structure for transinfo

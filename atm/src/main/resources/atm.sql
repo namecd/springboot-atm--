@@ -23,8 +23,10 @@ CREATE TABLE `cardinfo` (
 -- ----------------------------
 -- Records of cardinfo
 -- ----------------------------
-INSERT INTO `cardinfo` VALUES ('6100700240001078666', 'RMB', '0', '10800', '10', '666666', '2019-07-18 12:17:19', '0', '2');
-INSERT INTO `cardinfo` VALUES ('6222600260001072444', 'RMB', '0', '1000', '10', '123456', '2019-07-18 12:16:23', '0', '1');
+INSERT INTO `cardinfo` VALUES ('6100700240001071145', 'RMB', '0', '10800', '10', '666666', '2023-11-18 13:47:17', '0', '2');
+INSERT INTO `cardinfo` VALUES ('6222600260001072333', 'RMB', '0', '1000', '10', '123456', '2023-11-18 14:06:23', '0', '1');
+INSERT INTO `cardinfo` VALUES ('6222600775117320877', 'RMB', '0', '1000', '10', '123456', '2023-12-12 17:16:57', '0', '3');
+INSERT INTO `cardinfo` VALUES ('6222600370001455882', 'RMB', '0', '1000', '10', '123456', '2023-12-14 18:24:52', '0', '4');
 
 -- ----------------------------
 -- Table structure for systemlog
@@ -42,10 +44,10 @@ CREATE TABLE `systemlog` (
 -- ----------------------------
 -- Records of systemlog
 -- ----------------------------
-INSERT INTO `systemlog` VALUES ('483', '\"324\"', 'co.demo.service.impl.LoginServiceImpl:getUserInfo', '\"324\"{\"session\":{\"attributes\":{},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010167,\"maxInactiveInterval\":1800,\"isNew\":true,\"isValid\":true,\"thisAccessedTime\":1563955010169}}', '2019-07-24 15:56:50');
-INSERT INTO `systemlog` VALUES ('484', '\"6100700240001078666\"', 'co.demo.service.impl.LoginServiceImpl:getUserInfo', '\"6100700240001078666\"{\"session\":{\"attributes\":{\"cardId\":\"6100700240001078666\"},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010380,\"maxInactiveInterval\":1800,\"isNew\":false,\"isValid\":true,\"thisAccessedTime\":1563955016131}}', '2019-07-24 15:56:56');
-INSERT INTO `systemlog` VALUES ('485', '\"6100700240001078666\"', 'co.demo.service.impl.LoginServiceImpl:getCardInfo', '\"6100700240001078666\"\"111111\"', '2019-07-24 15:57:22');
-INSERT INTO `systemlog` VALUES ('486', '\"6100700240001078666\"', 'co.demo.service.impl.MoneyServiceImpl:getUserMoney', '\"6100700240001078666\"', '2019-07-24 16:18:24');
+INSERT INTO `systemlog` VALUES ('483', '\"324\"', 'co.demo.service.impl.LoginServiceImpl:getUserInfo', '\"324\"{\"session\":{\"attributes\":{},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010167,\"maxInactiveInterval\":1800,\"isNew\":true,\"isValid\":true,\"thisAccessedTime\":1563955010169}}', '2023-12-20 15:56:50');
+INSERT INTO `systemlog` VALUES ('484', '\"6100700240001078666\"', 'co.demo.service.impl.LoginServiceImpl:getUserInfo', '\"6100700240001078666\"{\"session\":{\"attributes\":{\"cardId\":\"6100700240001078666\"},\"creationTime\":1563955010167,\"id\":\"D06E80936990BA31BB68B03A22EEA563\",\"lastAccessedTime\":1563955010380,\"maxInactiveInterval\":1800,\"isNew\":false,\"isValid\":true,\"thisAccessedTime\":1563955016131}}', '2023-12-20 15:56:56');
+INSERT INTO `systemlog` VALUES ('485', '\"6100700240001078666\"', 'co.demo.service.impl.LoginServiceImpl:getCardInfo', '\"6100700240001078666\"\"111111\"', '2023-12-14 15:57:22');
+INSERT INTO `systemlog` VALUES ('486', '\"6100700240001078666\"', 'co.demo.service.impl.MoneyServiceImpl:getUserMoney', '\"6100700240001078666\"', '2023-12-14 16:18:24');
 
 -- ----------------------------
 -- Table structure for transinfo
@@ -64,9 +66,9 @@ CREATE TABLE `transinfo` (
 -- ----------------------------
 -- Records of transinfo
 -- ----------------------------
-INSERT INTO `transinfo` VALUES ('6100700240001078666', '1', '200', '2019-08-10 16:15:32', null);
+INSERT INTO `transinfo` VALUES ('6100700240001078666', '1', '200', '2023-12-10 16:15:32', null);
 
-INSERT INTO `transinfo` VALUES ('6100700240001078666', '0', '1000', '2019-08-10 16:16:11', null);
+INSERT INTO `transinfo` VALUES ('6100700240001078666', '0', '1000', '2023-12-10 16:16:11', null);
 
 -- ----------------------------
 -- Table structure for userinfo
@@ -85,5 +87,7 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
-INSERT INTO `userinfo` VALUES ('1', '张三', '43052519991104351X', '15243909704', '湖南长沙');
-INSERT INTO `userinfo` VALUES ('2', '李四', '420132198811042911', '13807042134', '湖南邵阳');
+INSERT INTO `userinfo` VALUES ('1', '刻晴', '43052519991104351X', '15243909704', '北京');
+INSERT INTO `userinfo` VALUES ('2', '甘雨', '420132198811042911', '13807042134', '江苏徐州');
+INSERT INTO `userinfo` VALUES ('3', '钟离', '425562199608221320', '15243909704', '沪国');
+INSERT INTO `userinfo` VALUES ('4', '夜兰', '389582198902031268', '13807042134', '江苏南京');

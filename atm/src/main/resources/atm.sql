@@ -89,5 +89,5 @@ CREATE TABLE `userinfo` (
 -- ----------------------------
 INSERT INTO `userinfo` VALUES ('1', '刻晴', '43052519991104351X', '15243909704', '北京');
 INSERT INTO `userinfo` VALUES ('2', '甘雨', '420132198811042911', '13807042134', '江苏徐州');
-INSERT INTO `userinfo` VALUES ('3', '钟离', '425562199608221320', '15243909704', '沪国');
+INSERT INTO `userinfo` VALUES ('3', '钟离', '425562199608221320', '15243909704', '江苏无锡');
 INSERT INTO `userinfo` VALUES ('4', '夜兰', '389582198902031268', '13807042134', '江苏南京');
